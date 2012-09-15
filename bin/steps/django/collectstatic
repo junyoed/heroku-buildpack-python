@@ -22,6 +22,13 @@ if [ "$RUN_COLLECTSTATIC" ]; then
         echo " !     Error running manage.py collectstatic. More info:"
         echo "       http://devcenter.heroku.com/articles/django-assets"
     }
+
+    echo "-----> Compressing static assets"
+    python $MANAGE_FILE compress 2>&1 | indent
+
+    [ $? -ne 0 ] && {
+        echo " !     Error running manage.py compress."
+    }
 fi
 
 echo
