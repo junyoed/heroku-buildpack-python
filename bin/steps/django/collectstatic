@@ -9,7 +9,7 @@ indent() {
 }
 
 # Check if collectstatic is configured properly.
-python $MANAGE_FILE collectstatic --dry-run --noinput && RUN_COLLECTSTATIC=true
+python $MANAGE_FILE collectstatic --dry-run --noinput -v 0 && RUN_COLLECTSTATIC=true
 
 # Compile assets if collectstatic appears to be kosher.
 if [ "$RUN_COLLECTSTATIC" ]; then
