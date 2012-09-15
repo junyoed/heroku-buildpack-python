@@ -11,10 +11,7 @@ DJANGO_SETTINGS_MODULE=portfoliyo.settings.heroku
 
 export MANAGE_FILE DJANGO_SETTINGS_MODULE
 
-echo "IN INIT!!!!!!"
-
 if [ ! "$DISABLE_COLLECTSTATIC" ]; then
-    echo "Running collectstatic!!!"
     source $BIN_DIR/steps/django/collectstatic
 fi
 

@@ -170,10 +170,7 @@ pip install -r requirements/heroku.txt --no-index --find-links file://$BUILD_DIR
 #
 # See [`bin/steps/django`](django.html).
 
-echo "about to check for Django!"
-
 if [ "$NAME" = "Python/Django" ]; then
-  echo "Django found!"
   source $BIN_DIR/steps/django/init
 fi
 
