@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-SETTINGS_FILE=$(find . -maxdepth 3 -type f -name 'heroku.py' | head -1)
 MANAGE_FILE=$(find . -maxdepth 3 -type f -name 'manage.py' | head -1)
 MANAGE_FILE=${MANAGE_FILE:2}
 
@@ -8,7 +7,9 @@ if [ -f .heroku/collectstatic_disabled ]; then
   DISABLE_COLLECTSTATIC=1
 fi
 
-export SETTINGS_FILE MANAGE_FILE
+DJANGO_SETTINGS_MODULE=portfoliyo.settings.heroku
+
+export MANAGE_FILE DJANGO_SETTINGS_MODULE
 
 if [ ! "$DISABLE_COLLECTSTATIC" ]; then
     source $BIN_DIR/steps/django/collectstatic
