@@ -8,6 +8,9 @@ indent() {
   [ $(uname) == "Darwin" ] && sed -l "$RE" || sed -u "$RE"
 }
 
+export LIBRARY_PATH=/app/.heroku/vendor/lib
+export LD_LIBRARY_PATH=/app/.heroku/vendor/lib
+
 # Check if collectstatic is configured properly.
 python $MANAGE_FILE collectstatic --dry-run --noinput && RUN_COLLECTSTATIC=true
 
