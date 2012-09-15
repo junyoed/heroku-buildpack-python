@@ -19,7 +19,7 @@ if [ ! -f $BUILD_DIR/requirements/heroku.txt ]; then
   exit 1
 fi
 
-SETTINGS_FILE=$(find $BUILD_DIR/. -maxdepth 2 -type f -name 'heroku.py' | head -1)
+SETTINGS_FILE=$(find $BUILD_DIR/. -maxdepth 3 -type f -name 'heroku.py' | head -1)
 
 
 [ -n "$SETTINGS_FILE" ] && ( list_requirements $BUILD_DIR/requirements/heroku.txt | grep -Fiq "django" ) && echo Python/Django || echo Python
