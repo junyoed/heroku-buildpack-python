@@ -68,10 +68,10 @@ cd $BUILD_DIR
 source $BIN_DIR/steps/hooks/pre_compile
 
 # If no requirements given, assume `setup.py develop`.
-if [ ! -f requirements.txt ]; then
-  puts-step "No requirements.txt provided; assuming dist package."
-  echo "-e ." > requirements.txt
-fi
+#if [ ! -f requirements.txt ]; then
+#  puts-step "No requirements.txt provided; assuming dist package."
+#  echo "-e ." > requirements.txt
+#fi
 
 # If no runtime given, assume default version.
 if [ ! -f runtime.txt ]; then
