@@ -154,11 +154,6 @@ hash -r
 # See [`bin/steps/pylibmc`](pylibmc.html).
 source $BIN_DIR/steps/pylibmc
 
-# Install Mercurial if it appears to be required.
-if (grep -Fiq "hg+" requirements.txt) then
-  /app/.heroku/python/bin/pip install --use-mirrors mercurial | cleanup | indent
-fi
-
 # Install dependencies with Pip.
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 /app/.heroku/python/bin/pip install -r requirements/prod.txt --no-index --find-links file://$BUILD_DIR/requirements/dist/ | cleanup | indent
